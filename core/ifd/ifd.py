@@ -1,3 +1,6 @@
+"""Written by Lucy Williams
+https://github.com/msu-alglab/coaster/blob/master/ifd_package/flows/ifd.py
+"""
 import time
 
 

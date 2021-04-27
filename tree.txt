@@ -1,0 +1,31 @@
+tree /a /f > tree.txt
+
+Folder PATH listing for volume DATA
+Volume serial number is E63E-D1C6
+D:.
+|   .gitignore
+|   demo.py
+|   pipeline.py
+|   README.md
+|   tree.txt
+|   
++---core
+|   |   graphs.py
+|   |   LICENSE
+|   |   __init__.py
+|   |   
+|   \---ifd
+|           graphs.py
+|           ifd.py
+|           __init__.py
+|           
++---data
+|       subpath.fasta
+|       test.fasta
+|       test_solution.txt
+|       
+\---src
+        graph_solver.py
+        read_strategy.py
+        storage.py
+        
