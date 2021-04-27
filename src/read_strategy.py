@@ -34,7 +34,7 @@ class Context():
 
 class ReadStrategy(ABC):
     """Represents the Strategy interface. This is done with
-    the Abstact Base Class in Python.
+    the Abstract  Base Class in Python.
     """
     @abstractmethod
     def read_file(self, file_name):

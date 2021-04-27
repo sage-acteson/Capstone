@@ -11,8 +11,8 @@ from src.storage import FlowGraph
 class GraphSolver:
     """
     This class handles content around finding a solution to a graph.
-    Specfically this calls all the appropriate methods to take a flow graph,
-    reduce it, then run IFD (inxact flow decomposition) on it.
+    Specifically this calls all the appropriate methods to take a flow graph,
+    reduce it, then run IFD (inexact flow decomposition) on it.
     """
 
     def __init__(self, flow_graph):

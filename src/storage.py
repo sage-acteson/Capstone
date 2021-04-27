@@ -101,7 +101,7 @@ class FlowGraph:
         concat = str(self.new_source) + "_0" # assumes that 0 is the existing source
         self.ifg[concat] = (total_flow, total_flow)
 
-        # 4. For each subpath constraint Ri create ndoes xi and yi
+        # 4. For each subpath constraint Ri create nodes xi and yi
         for subpath in self.subpaths:
             xi = self.new_node()
             yi = self.new_node()
@@ -191,7 +191,7 @@ class DeBruijnGraph:
     """
     def __init__(self, k = 4):
         self.k = k # the size of the k-mers
-        self.vertexes = [] # maps index to original sequence value
+        self.vertices = [] # maps index to original sequence value
 
         # Maps node to other nodes with frequency. 
         # In the form {u : {v1 : f1, v2 : f2, ...}, ...}
@@ -214,14 +214,14 @@ class DeBruijnGraph:
             r_mer = mer[1:]
 
             # make sure the k-1-mers have a number
-            if l_mer not in self.vertexes:
-                self.vertexes.append(l_mer)
-            if r_mer not in self.vertexes:
-                self.vertexes.append(r_mer)
+            if l_mer not in self.vertices:
+                self.vertices.append(l_mer)
+            if r_mer not in self.vertices:
+                self.vertices.append(r_mer)
 
             # add the edge between them
-            l_mer_index = self.vertexes.index(l_mer)
-            r_mer_index = self.vertexes.index(r_mer)
+            l_mer_index = self.vertices.index(l_mer)
+            r_mer_index = self.vertices.index(r_mer)
             # if the left k-1-mer is not added yet: trivial
             if l_mer_index not in self.edges:
                 self.edges[l_mer_index] = {r_mer_index: 1}
@@ -245,7 +245,7 @@ class DeBruijnGraph:
         # get the node order of the subpath sequence
         seq = ""
         for mer in k_1_mers:
-            index = self.vertexes.index(mer)
+            index = self.vertices.index(mer)
             seq += str(index) + " "
 
         # add a default demand for now
@@ -257,7 +257,7 @@ class DeBruijnGraph:
         """Returns the DeBruijnGraph as a Graph that can
         be used in the IFD program
         """
-        num_nodes = len(self.vertexes)
+        num_nodes = len(self.vertices)
         flow_graph = FlowGraph(num_nodes)
 
         # add all edges
@@ -274,7 +274,7 @@ class DeBruijnGraph:
     def convert(self, nodes):
         """Takes in nodes and returns the original sequence
         """
-        sequence = self.vertexes[nodes[0]]
+        sequence = self.vertices[nodes[0]]
         for i in range(1,len(nodes)):
-            sequence += self.vertexes[nodes[i]][-1]
+            sequence += self.vertices[nodes[i]][-1]
         return sequence

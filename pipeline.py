@@ -1,4 +1,4 @@
-"""Creates and runs the pipline
+"""Creates and runs the pipeline
 
 author: Sage Acteson
 """
